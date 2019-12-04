@@ -10,8 +10,9 @@
 ## Milestone 1
 
 ### Collaborators
-* Chad Sterling
-* Josh Thompson
+* Chad
+* Josh
+* Marby
 
 ### Software Goal & Concept
 * Easily see timing of next train
