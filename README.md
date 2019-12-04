@@ -16,7 +16,7 @@
 ### Software Goal & Concept
 * Easily see timing of next train
 * Quickly understand traffic at favorite stations (e.g., recent trends on timing for trains at station)
-* know if you need to run, walk or wait based on your current location and next trian
+* Know if you need to run, walk or wait based on your current location and next trian
 
 ### Project Specifications
 * API Consumed
@@ -36,5 +36,10 @@
             * Render website with most recent data from database
 
 ### Challenges and Unkowns
+* BART API may not provide the data we expect it to
+* Complications getting the data to update regularly in the database
 
 ### Group Roles
+* Front-end: Marby
+* Back-end: Chad
+* API/Models: Josh
