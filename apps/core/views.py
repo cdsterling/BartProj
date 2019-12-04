@@ -1,9 +1,7 @@
 from django.shortcuts import render
-import requests
 
 # Two example views. Change or delete as necessary.
 def home(request):
-
     context = {
         'example_context_variable': 'Change me.',
     }
@@ -15,7 +13,3 @@ def about(request):
     }
 
     return render(request, 'pages/about.html', context)
-
-# BART API 
-def refresh_station_arrivals(): 
-    pass
