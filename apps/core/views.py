@@ -18,6 +18,4 @@ def about(request):
 
 # BART API 
 def refresh_station_arrivals(): 
-    # call API and convert to dictionary
-    # 
     pass

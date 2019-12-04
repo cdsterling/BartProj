@@ -1,6 +1,6 @@
 from django.db import models
 
-# query this table for specific stations, destination
+# query this table by station_name to get current ETAs
 class StationArrival(models.Model):
     update_datetime = models.DateTimeField()
     station_name = models.CharField(max_length=100)
