@@ -1,0 +1,110 @@
+/* Navbar */
+#navbar {
+    background: #4f5f76;
+    color: #fff;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+  
+  }
+  
+#navbar a {
+    color: #fff;
+  }
+#navbar ul li a:hover, 
+#navbar ul li a.current {
+    background: #444;
+    color: #f7c08a;
+  }
+#navbar h1 {
+    font-size: 30px;
+    float: left;
+    padding-top: 20px;
+    padding-left: 20px;
+  }
+  
+#navbar ul {
+    list-style: none;
+    float: right;
+  }
+  
+#navbar ul li {
+    float: left;
+  }
+  
+#navbar ul li  a{
+    font-weight: bold;
+    font-size: 20px;
+    display: block;
+    padding: 20px;
+    text-align: center;
+  }
+  
+#navbar ul li a:hover, 
+#navbar ul li a.current {
+    background: #444;
+    color: #f7c08a;
+  }
+
+body, html {
+    height: 100%;
+}
+#base {
+  background-image: url("../images/bart.png");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 200px;
+}
+
+.dropdown {
+    text-align: center; 
+    
+}
+.dropdown button {
+    padding: 0px 200px !important;
+}
+.dropdown-menu a{
+    padding: 0px 160px !important; 
+}
+
+#droplist-container {
+    text-align: center;
+    
+  }
+
+#droplist ul li{
+    text-align: center;
+    
+    list-style: none;
+    background-color: white;
+    margin-top: 10px;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+
+  
+  .blue-square {
+    background-color: #0074D9;  
+    display: inline-block;
+  }
+
+  .pittsburg {
+      color: yellow;
+  }
+  .dublin {
+      color: blue;
+  }
+  .richmond {
+      color: orange;
+  }
+  .fremont {
+      color: green;
+  }
+  .milbrae {
+      color: red;
+  }
