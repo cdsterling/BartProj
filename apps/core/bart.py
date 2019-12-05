@@ -24,7 +24,7 @@ def station_arrivals():
 
     update_datetime = datetime.combine(
         datetime.strptime(result['date'], "%m/%d/%Y"),
-        datetime.strptime(result['time'][:7],"%I:%M:%S").time()
+        datetime.strptime(result['time'],"%I:%M:%S %p %Z").time()
     )
     arrivals = {}
     for station in result['station']: 
