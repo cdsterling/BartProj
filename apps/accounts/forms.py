@@ -7,10 +7,9 @@ class UserEditForm(forms.ModelForm):
     class Meta:
         model = User
         fields = (
-            'first_name',
-            'last_name',
-            'email',
-            'bio',
+            'favorite_station1',
+            'favorite_station2',
+            'favorite_station3',
         )
 
 class SignupForm(UserCreationForm):
@@ -21,5 +20,8 @@ class SignupForm(UserCreationForm):
             'email',
             'password1',
             'password2',
+            'favorite_station1',
+            'favorite_station2',
+            'favorite_station3',
         )
 
