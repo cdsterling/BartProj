@@ -14,15 +14,18 @@ class User(AbstractUser):
     favorite_station1 = models.CharField(
         max_length=30, 
         choices=station_list,
+        blank=True,
     )
 
     favorite_station2 = models.CharField(
         max_length=30, 
         choices=station_list,
+        blank=True,
     )
 
     favorite_station3 = models.CharField(
         max_length=30, 
         choices=station_list,
+        blank=True,
     )
 
