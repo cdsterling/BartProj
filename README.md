@@ -14,12 +14,12 @@ BartProj/
             - accounts/login    # calls log_in() for django form to login -> redirect to /home
             - accounts/signup   # calls sign_up() for django form to signup -> redirect to /home
             - accounts/logout   # calls logout_view() -> redirect to /
-            - accounts/preferences # calls preferences() for django form to edit favorite staitons -> redirect to /home
+            - accounts/favorites # calls preferences() for django form to edit favorite staitons -> redirect to /home
         - views.py         
             - log_in()          # login stuff
             - sign_up()         # passes signup form based on User class
             - logout_view()     # logout stuff
-            - preferences()     # passes edit user form based on User class
+            - favorites()     # passes edit user form based on User class
         - forms.py         # UserEditForm and SignupForm for views
         - templates/       # Templates for user profile stuff
             - login
