@@ -1,5 +1,5 @@
 # BART PROJECT
-
+```
 BartProj/
     - config/
         - base.py          # Stores most settings
@@ -16,6 +16,10 @@ BartProj/
             - accounts/logout   # URL to logout -> logout -> redirect to /
             - accounts/preferences # URL to edit favorite stations -> django form to edit favorite staitons -> redirect to /home
         - views.py         # Views for sign-up and log-in pages
+            - login()      
+            - signup()
+            - logout()
+            - preferences()
         - forms.py         # Form for editing user profile, sign-up
         - templates/       # Templates for user profile stuff
             - login
@@ -25,15 +29,17 @@ BartProj/
         - static/          # Static files
         - templates/       # Core templates, including base templates
             - homepage     # shows 'signup' and 'login' 
-            - home         # only shows 'logout"
+            - home         # only shows 'logout' and 'prefrences'
         - urls.py
             - /              # URL for homepage -> drop down of possible stations and displays schedule choice
             - /home          # URL for homepage of logged in user -> that shows favoriate stations with schedules
-        - etc
+        - views.py
+            - homepage()    # function for homepage (logged out user)
+            - home()        # function for home (logged in user with favorite stations)
 - manage.py                # Entry point
 - Pipfile                  # Development requirements
 
-
+```
 
 
 
