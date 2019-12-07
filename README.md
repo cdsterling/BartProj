@@ -11,14 +11,14 @@ BartProj/
     - accounts/            # An example custom app that includes sign-up and log-in
         - models.py        # Customized user class is here
         - urls.py          # URLs for sign-up and log-in pages
-            - accounts/login    # URL to login -> django form to login -> redirect to /home
-            - accounts/signup   # URL to sign up -> django form to signup -> redirect to /home
-            - accounts/logout   # URL to logout -> logout -> redirect to /
-            - accounts/preferences # URL to edit favorite stations -> django form to edit favorite staitons -> redirect to /home
+            - accounts/login    # URL to login -> calls log_in() for django form to login -> redirect to /home
+            - accounts/signup   # URL to sign up -> calls sign_up() for django form to signup -> redirect to /home
+            - accounts/logout   # URL to logout -> calls logout_view() -> redirect to /
+            - accounts/preferences # URL to edit preferences -> calls preferences() for django form to edit favorite staitons -> redirect to /home
         - views.py         # Views for sign-up and log-in pages
-            - login()      
-            - signup()
-            - logout()
+            - log_in()
+            - sign_up()
+            - logout_view()
             - preferences()
         - forms.py         # Form for editing user profile, sign-up
         - templates/       # Templates for user profile stuff
