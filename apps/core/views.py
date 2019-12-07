@@ -42,7 +42,7 @@ def show_single_station(request, stn_abbr):
     }
     return render(request, 'pages/station_list.html', context)
 
-def show_all_users_stations(request)
+def show_all_users_stations(request):
     arrivals = []
     station_names = []
     all_stations = bart.stations()
