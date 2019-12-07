@@ -7,20 +7,20 @@ BartProj/
         - production.py    # Stores settings only used by production (e.g. Heroku)
     - urls.py              # Global urls.py, in turn includes urls.py in apps
 
-- apps/                    # A directory to store all our custom apps
-    - accounts/            # An example custom app that includes sign-up and log-in
-        - models.py        # Customized user class is here
-        - urls.py          # URLs for sign-up and log-in pages
-            - accounts/login    # URL to login -> calls log_in() for django form to login -> redirect to /home
-            - accounts/signup   # URL to sign up -> calls sign_up() for django form to signup -> redirect to /home
-            - accounts/logout   # URL to logout -> calls logout_view() -> redirect to /
-            - accounts/preferences # URL to edit preferences -> calls preferences() for django form to edit favorite staitons -> redirect to /home
-        - views.py         # Views for sign-up and log-in pages
-            - log_in()
-            - sign_up()
-            - logout_view()
-            - preferences()
-        - forms.py         # Form for editing user profile, sign-up
+- apps/                    
+    - accounts/                 # app for managing users
+        - models.py             # customized user class that adds favorite stations
+        - urls.py               
+            - accounts/login    # calls log_in() for django form to login -> redirect to /home
+            - accounts/signup   # calls sign_up() for django form to signup -> redirect to /home
+            - accounts/logout   # calls logout_view() -> redirect to /
+            - accounts/preferences # calls preferences() for django form to edit favorite staitons -> redirect to /home
+        - views.py         
+            - log_in()          # login stuff
+            - sign_up()         # passes signup form based on User class
+            - logout_view()     # logout stuff
+            - preferences()     # passes edit user form based on User class
+        - forms.py         # UserEditForm and SignupForm for views
         - templates/       # Templates for user profile stuff
             - login
             - signup
