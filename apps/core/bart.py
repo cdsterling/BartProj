@@ -7,7 +7,7 @@ bart_key = os.getenv("BART_API_KEY")
 # cach.get 
 
 # BART API 
-def station_arrivals(): 
+def station_arrivals( stn_abbr="ALL"): 
     """
     DEFINITIONS
     update_datetime - DATETIME - time when data was updated
@@ -25,16 +25,17 @@ def station_arrivals():
     delay_seconds - STRING - number of seconds the train has deviated from the original schedule
     """
 
-    params = {'key': bart_key, 'cmd': 'etd', 'orig': 'ALL', 'json': 'y'}
+    params = {'key': bart_key, 'cmd': 'etd', 'orig': stn_abbr, 'json': 'y'}
     response = requests.get('http://api.bart.gov/api/etd.aspx', params=params)
-    print(f'Status code: {response.status_code}')
-    print(f'Headers: {response.headers}')
+    # print(f'Status code: {response.status_code}')
+    # print(f'Headers: {response.headers}')
     result = response.json()['root']
 
     update_datetime = datetime.combine(
         datetime.strptime(result['date'], "%m/%d/%Y"),
         datetime.strptime(result['time'][0:11],"%I:%M:%S %p").time()
     )
+    print("Printing update_datetime", update_datetime)
     arrivals = {}
     for station in result['station']: 
         arrivals[station['abbr']] = []

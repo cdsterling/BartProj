@@ -1,0 +1,24 @@
+
+
+{% block title %}Station List {% endblock title %}
+
+
+{% block content %}
+    <h2>{{ station_name|title}} </h2>
+    {% for train in arrivals %}
+        <ul>
+            <li>Destination : {{train.destination_name}}</li>
+            <li>Minutes to Arrival: {{ train.arrival_minutes}}</li>
+            <li>Platform: {{train.platform}}</li>
+            <li>Delay (seconds): {{train.delay_seconds }}</li>
+                        
+        </ul>
+
+
+
+
+
+    {% endfor %}
+
+
+{% endblock content %}
