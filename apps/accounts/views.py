@@ -45,33 +45,11 @@ def sign_up(request):
 def logout_view(request):
     logout(request)
     messages.success(request, 'Logged out.')
-    return redirect('home')
+    return redirect('home') #might want to change this redirect to '' to send to homepage?
 
-
-def view_all_users(request):
-    all_users = User.objects.all()
-    context = {
-        'users': all_users,
-    }
-    return render(request, 'accounts/view_all_users.html', context)
-
-
-def view_profile(request, username):
-    user = User.objects.get(username=username)
-
-    if request.user == user:
-        is_viewing_self = True
-    else:
-        is_viewing_self = False
-
-    context = {
-        'user': user,
-        'is_viewing_self': is_viewing_self,
-    }
-    return render(request, 'accounts/profile_page.html', context)
 
 @login_required
-def edit_profile(request):
+def preferences(request):
     if request.method == 'POST':
         form = UserEditForm(request.POST, instance=request.user)
         if form.is_valid():
@@ -83,6 +61,6 @@ def edit_profile(request):
     context = {
         'form': form,
     }
-    return render(request, 'accounts/edit_profile.html', context)
+    return render(request, 'accounts/preferences.html', context)
 
 
