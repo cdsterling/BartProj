@@ -23,12 +23,21 @@ def faq(request):
 
 # def show_station(request, stationID):
 def show_station(request, stn_abbr):
-    print("-----------showing station")
+    
     #call the api using the station id
     arrivals = bart.station_arrivals(stn_abbr)
     # print("printing arrivals", arrivals)
 
-    print(arrivals.keys())   
+    all_stations = bart.stations()
+    print("-----------showing station", stn_abbr)
+
+    station_name=''
+    for single_station in all_stations:
+        if stn_abbr == single_station['abbr']:
+            station_name = single_station['name']
+            break
+
+    print('arrival keys', arrivals.keys())   
     # for train in arrivals[stn_abbr]:
     #     print("update datetime", train["update_datetime"])
     #     print("station Name", train["station_name"])
@@ -38,7 +47,7 @@ def show_station(request, stn_abbr):
     #     print("------------------------------------")     
     context = {
         'arrivals': arrivals[stn_abbr],
-        'station_name' : arrivals[stn_abbr][0]["station_name"]
+        'station_name' : station_name
 
     }
     return render(request, 'pages/station_list.html', context)
