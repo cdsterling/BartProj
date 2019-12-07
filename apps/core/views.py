@@ -40,7 +40,7 @@ def show_single_station(request, stn_abbr):
         'station_name' : station_name
 
     }
-    return render(request, 'pages/station_list.html', context)
+    return render(request, 'pages/index.html', context)
 
 def show_all_users_stations(request):
     arrivals = []
