@@ -2,6 +2,12 @@ from django.shortcuts import render
 from . import bart 
 
 # Two example views. Change or delete as necessary.
+def homepage(request):
+    context = {
+        'example_context_variable': 'Change me.',
+    }
+    return render(request, 'pages/home.html', context)
+
 def home(request):
     context = {
         'example_context_variable': 'Change me.',

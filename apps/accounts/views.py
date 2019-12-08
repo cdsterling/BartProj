@@ -6,7 +6,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
 from apps.accounts.forms import FavoriteStationForm, SignupForm
-from apps.accounts.models import User, FavoriteStation
+from apps.accounts.models import FavoriteStation
+from django.contrib.auth.models import User
 from apps.core import bart
 
 def log_in(request):
