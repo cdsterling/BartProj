@@ -5,16 +5,16 @@ BartProj/
         - base.py          # Stores most settings
         - local.py         # Stores settings only for local dev
         - production.py    # Stores settings only used by production (e.g. Heroku)
-    - urls.py              # Global urls.py, in turn includes urls.py in apps
+    - urls.py              # Global urls.py -> routes to apps.urls.py for "" and accounts.urls.py for "account/"
 
 - apps/                    
     - accounts/                 # app for managing users
-        - models.py             # customized user class that adds favorite stations
+        - models.py             # FavoriteStation model for storing favorited stations by users
         - urls.py               
             - accounts/login    # calls log_in() for django form to login -> redirect to /home
             - accounts/signup   # calls sign_up() for django form to signup -> redirect to /home
             - accounts/logout   # calls logout_view() -> redirect to /
-            - accounts/favorites # calls preferences() for django form to edit favorite staitons -> redirect to /home
+            - accounts/favorites # calls favorites() for django form to edit favorite stations -> redirect to /home
         - views.py         
             - log_in()          # login stuff
             - sign_up()         # passes signup form based on User class
@@ -24,15 +24,15 @@ BartProj/
         - templates/       # Templates for user profile stuff
             - login
             - signup
-            - preferences
-    - core/                # An example custom app that has some static pages
+            - favorites
+    - core/                # app for displaying station information
         - static/          # Static files
         - templates/       # Core templates, including base templates
             - homepage     # shows 'signup' and 'login' 
-            - home         # only shows 'logout' and 'prefrences'
+            - home         # only shows 'logout' and 'favorites'
         - urls.py
             - /              # URL for homepage -> drop down of possible stations and displays schedule choice
-            - /home          # URL for homepage of logged in user -> that shows favoriate stations with schedules
+            - /home          # URL for homepage of logged in user -> shows favorited stations with schedules
         - views.py
             - homepage()    # function for homepage (logged out user)
             - home()        # function for home (logged in user with favorite stations)
