@@ -1,107 +1,38 @@
-{% load static %}
+
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>
-        {% block title %}
-            My Site
-        {% endblock title %}
-    </title>
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <![endif]-->
-
-    <link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
-
-    <link href="{% static 'css/signinform.css' %}" rel="stylesheet">
-
-    <!-- Add your custom CSS to this file -->
-    <link href="{% static 'css/custom.css' %}" rel="stylesheet">
-
-  </head>
-
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <link href="../static/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>{% block title %}
+                My Site
+            {% endblock title %}</title>
+</head>
 <body>
+    <div class="base">
+        <nav id="navbar">
+            <div >
+                <h1 class="logo"><a href="{% url 'home' %}"> Bart Runner </a></h1>
+                <ul>
+                    <li><a  href="{% url 'home' %}">Main</a> </li>
+                    <li><a href="{% url 'signup' %}">Subscribe</a> </li>
+                    <li><a href="{% url 'login' %}"> Log in</a></li>
+                </ul>
+            </div>
+        </nav>
 
-<nav class="navbar navbar-expand-md">
-    <div class="container">
-        <a class="navbar-brand" href="/">
-            <!-- Add your logo here!  <img src="" /> -->
-            My Site
-        </a>
+        {% block content %}
 
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon">
-                ☰
-            </span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home' %}">Start</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'about' %}">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'view_all_users' %}">Users</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                {% if request.user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}" >Sign Out</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'view_profile' request.user %}" >
-                            {{ request.user }}
-                            <img src="{{ user.gravatar }}" class="navbar-avatar" />
-                        </a>
-                    </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a id="log-in-link" class="nav-link" href="{% url 'login' %}">Log In</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="log-in-link" class="nav-link" href="{% url 'signup' %}">Sign up</a>
-                    </li>
-                {% endif %}
-            </ul>
-
+        {% endblock content %}    
+    
         </div>
-    </nav>
-</div>
-
-
-
-{% block main %}
-    <div class="container pt-2">
-
-      {# Enable Django's "messages" system #}
-      {% if messages %}
-          {% for message in messages %}
-              <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
-          {% endfor %}
-      {% endif %}
-
-      {% block content %}
-        <p>Use this as a way to quick start any new project.</p>
-      {% endblock content %}
-
-    </div>
-{% endblock main %}
-
-
-      <script src="{% static 'js/bootstrap/jquery-3.4.1.min.js' %}"></script>
-      <script src="{% static 'js/bootstrap/bootstrap.js' %}"></script>
-  </body>
+    </body>
 </html>
-

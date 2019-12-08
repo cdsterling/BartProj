@@ -1,23 +1,35 @@
 {% extends "base.html" %}
 
 {% block title %}
-    My Site - Home
+My Site - Home Page
 {% endblock title %}
 
-
 {% block content %}
-<div class="jumbotron">
-  <h1 class="display-4">My Site</h1>
-  <p class="lead">This is a simple Jumbotron component from Bootstrap 4.</p>
-  <hr class="my-4">
-  <p>Edit this to include your content.</p>
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" href="{% url 'about' %}" role="button">Learn more</a>
-  </p>
-</div>
 
-<p>More stuff. {{ example_context_variable }}.</p>
-
-{% endblock content %}
-
-
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Select a Station 
+  </button>
+  </button>
+  </button>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="#">station 1 Lorem ipsum dolor sit amet.</a>
+      <a class="dropdown-item" href="#">station 2 Lorem ipsum dolor sit amet.</a>
+      <a class="dropdown-item" href="#">station 3 Lorem ipsum dolor sit amet.</a>
+    </div>
+  </div>
+  <div id="droplist">
+      <div class="container">
+          <ul>
+              <li><span class="pittsburg">Pittsburg</span> lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
+              <li><span class="dublin">Dublin</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
+              <li><span class="fremont">Fremont</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
+              <li><span class="milbrae">Milbrae</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
+              <li><span class="richmond">Richmond</span> >Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
+              <li><span class="dublin">Dublin</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
+              <li><span class="fremont">Fremont</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
+          </ul>
+      </div>
+  </div>
+  {% endblock %}
