@@ -7,7 +7,7 @@ from apps.core import bart
 class User(AbstractUser):
     pass
 
-class FavoriteStations(): 
+class FavoriteStation(): 
     user = models.ForeignKey(
         User, 
         on_delete=models.CASCADE,

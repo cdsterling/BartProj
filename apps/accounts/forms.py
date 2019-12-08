@@ -3,7 +3,7 @@ from django import forms
 
 from apps.accounts.models import User, FavoriteStations
 
-class FavoriteForm(forms.ModelForm):
+class FavoriteStationForm(forms.ModelForm):
     class Meta:
         model = User
         fields = (
