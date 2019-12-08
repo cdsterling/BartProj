@@ -1,11 +1,11 @@
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django import forms
-
-from apps.accounts.models import User, FavoriteStations
+from django.contrib.auth.models import User
+from apps.accounts.models import FavoriteStation
 
 class FavoriteStationForm(forms.ModelForm):
     class Meta:
-        model = User
+        model = FavoriteStation
         fields = (
             'station',
         )

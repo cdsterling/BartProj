@@ -122,4 +122,4 @@ MEDIA_URL = '/media/'
 LOGIN_URL = '/account/login/'
 
 # Specify we are using a custom user model
-AUTH_USER_MODEL = 'accounts.User'
+# AUTH_USER_MODEL = 'accounts.User'
