@@ -32,16 +32,23 @@
             </button>
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                {% for station in station_list %}
-                <a class="dropdown-item" href="{{station[0]}}">{{station[1]}}</a>
+                {% for station_abbr, station_name in station_list %}
+                    <a class="dropdown-item" href="/show_single_station/{{station_abbr}}">{{station_name}}</a>
                 {% endfor %}
-                <a class="dropdown-item" href="#">station 2 Lorem ipsum dolor sit amet.</a>
-                <a class="dropdown-item" href="#">station 3 Lorem ipsum dolor sit amet.</a>
+                
               </div>
             </div>
             <div id="droplist">
                 <div class="container">
                     <ul>
+                        {% for train in arrivals %}
+                            <li>
+                                    Destination : {{train.destination_name}}
+                                    Minutes to Arrival: {{ train.arrival_minutes}}
+                                    Platform: {{train.platform}}
+                                    Delay (seconds): {{train.delay_seconds }}
+                            </li>
+                        {% endfor %}
                         <li><span class="pittsburg">Pittsburg</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
                         <li><span class="dublin">Dublin</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
                         <li><span class="fremont">Fremont</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>

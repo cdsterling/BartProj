@@ -26,9 +26,11 @@ def show_single_station(request, stn_abbr):
     arrivals = {}
     station_name=''
     
-    if request.method == "POST":
+    if stn_abbr != "SELECT" and stn_abbr != "":
         #call the api using the station id
+
         arrivals = bart.station_arrivals(stn_abbr)[stn_abbr]
+        print("chad was here")
 
         #get the full name of the station from bart.stations - 
         # eventually we want that info in the Database
@@ -38,7 +40,9 @@ def show_single_station(request, stn_abbr):
             if stn_abbr == single_station['abbr']:
                 station_name = single_station['name']
                 break
-
+    
+    print("arrivals:", arrivals)
+    
     context = {
         'station_list': station_list,
         'arrivals': arrivals,
