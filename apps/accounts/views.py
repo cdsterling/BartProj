@@ -5,8 +5,8 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
-from apps.accounts.forms import UserEditForm, SignupForm
-from apps.accounts.models import User
+from apps.accounts.forms import FavoriteForm, SignupForm
+from apps.accounts.models import User, FavoriteStations
 
 def log_in(request):
     if request.method == 'POST':
@@ -45,22 +45,22 @@ def sign_up(request):
 def logout_view(request):
     logout(request)
     messages.success(request, 'Logged out.')
-    return redirect('home') #might want to change this redirect to '' to send to homepage?
+    return redirect('') #might want to change this redirect to '' to send to homepage?
 
 
 @login_required
-def preferences(request):
+def favorites(request):
     if request.method == 'POST':
-        form = UserEditForm(request.POST, instance=request.user)
+        form = FavoriteForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
             return redirect('home')
     else:
-        form = UserEditForm(instance=request.user)
+        form = FavoriteForm(instance=request.user)
 
     context = {
         'form': form,
     }
-    return render(request, 'accounts/preferences.html', context)
+    return render(request, 'accounts/favorites.html', context)
 
 

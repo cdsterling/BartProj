@@ -4,28 +4,19 @@ from django.contrib.auth.models import AbstractUser
 from apps.core import bart
 
 
-# Custom User class which extends built-in User. Presently, just adds a "bio"
-# and a gravatar method. Feel free to add your own new fields here!
-
 class User(AbstractUser):
+    pass
+
+class FavoriteStations(): 
+    user = models.ForeignKey(
+        User, 
+        on_delete=models.CASCADE,
+    )
 
     station_list = [(station['abbr'], station['name']) for station in bart.stations()]
 
-    favorite_station1 = models.CharField(
+    station = models.CharField(
         max_length=30, 
         choices=station_list,
         blank=True,
     )
-
-    favorite_station2 = models.CharField(
-        max_length=30, 
-        choices=station_list,
-        blank=True,
-    )
-
-    favorite_station3 = models.CharField(
-        max_length=30, 
-        choices=station_list,
-        blank=True,
-    )
-
