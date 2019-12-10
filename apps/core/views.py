@@ -28,21 +28,29 @@ def faq(request):
     return render(request, 'pages/faq.html', context)
 
 def show_single_station(request, stn_abbr):
-    
-    #call the api using the station id
-    arrivals = bart.station_arrivals(stn_abbr)
-
-    #get the full name of the station from bart.stations - 
-    # eventually we want that info in the Database
-    all_stations = bart.stations()
+    station_list = [(station['abbr'], station['name']) for station in bart.stations()]
+    arrivals = {}
     station_name=''
-    for single_station in all_stations:
-        if stn_abbr == single_station['abbr']:
-            station_name = single_station['name']
-            break
+
+
+    if stn_abbr != "SELECT" and stn_abbr != "":
+        #call the api using the station id
+        arrivals = bart.station_arrivals(stn_abbr)[stn_abbr]
+
+        #get the full name of the station from bart.stations - 
+        # eventually we want that info in the Database
+        all_stations = bart.stations()
+        station_name=''
+        for single_station in all_stations:
+            if stn_abbr == single_station['abbr']:
+                station_name = single_station['name']
+                break
+
+    print("arrivals", arrivals)
 
     context = {
-        'arrivals': arrivals[stn_abbr],
+        'station_list': station_list,
+        'arrivals': arrivals,
         'station_name' : station_name
 
     }
