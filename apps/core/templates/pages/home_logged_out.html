@@ -19,14 +19,15 @@ My Site - Home Page
 </button>
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">station 1 Lorem ipsum dolor sit amet.</a>
-    <a class="dropdown-item" href="#">station 2 Lorem ipsum dolor sit amet.</a>
-    <a class="dropdown-item" href="#">station 3 Lorem ipsum dolor sit amet.</a>
+    {% for station_abbr, station_name in station_list %}
+        <a class="dropdown-item" href="/{{station_abbr}}">{{station_name}}</a>
+    {% endfor %}
   </div>
 </div>
 <div id="droplist">
     <div class="container">
         <ul>
+            
             <li><span class="pittsburg">Pittsburg</span>  dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
             <li><span class="dublin">Dublin</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
             <li><span class="fremont">Fremont</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
