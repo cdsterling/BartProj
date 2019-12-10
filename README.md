@@ -22,21 +22,21 @@ BartProj/
             - favorites()     # passes edit user form based on User class
         - forms.py         # UserEditForm and SignupForm for views
         - templates/       # Templates for user profile stuff
-            - accounts.html     # extends base -> 
-            - login.html   # extends base -> login page
-            - signup       # extends base -> signup page
-            - favorites    # extends base -> favorites (ie, preferences) page
+            - accounts.html     # extends base -> template for accounts/ pages
+            - login.html        # extends accounts -> login page
+            - signup            # extends accounts -> signup page
+            - favorites         # extends accounts -> favorites (ie, preferences) page
     - core/                # app for displaying station information
         - static/          # Static files
         - templates/       # Core templates, including base templates
             - base.html    # base for all pages
             - pages/
-                - homepage.html     # extends base -> "base" for homepages
+                - homepage.html                 # extends base -> template for homepages
                 - homepage_logged_in.html       # extends homepage -> shows 'signup' and 'login' 
                 - homepage_logged_out.html      # extends homepage -> shows 'logout' and 'favorites'
         - urls.py
-            - /              # URL for homepage -> drop down of possible stations and displays schedule choice
-            - /home          # URL for homepage of logged in user -> shows favorited stations with schedules
+            - /              # URL for homepage -> drop down of possible stations and displays schedule choice -> homepage_logged_out.html
+            - /home          # URL for homepage of logged in user -> shows favorited stations with schedules -> homepage_logged_in.html
         - views.py
             - homepage()    # function for homepage (logged out user)
             - home()        # function for home (logged in user with favorite stations)
