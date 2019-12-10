@@ -22,14 +22,18 @@ BartProj/
             - favorites()     # passes edit user form based on User class
         - forms.py         # UserEditForm and SignupForm for views
         - templates/       # Templates for user profile stuff
-            - login
-            - signup
-            - favorites
+            - accounts.html     # extends base -> 
+            - login.html   # extends base -> login page
+            - signup       # extends base -> signup page
+            - favorites    # extends base -> favorites (ie, preferences) page
     - core/                # app for displaying station information
         - static/          # Static files
         - templates/       # Core templates, including base templates
-            - homepage     # shows 'signup' and 'login' 
-            - home         # only shows 'logout' and 'favorites'
+            - base.html    # base for all pages
+            - pages/
+                - homepage.html     # extends base -> "base" for homepages
+                - homepage_logged_in.html       # extends homepage -> shows 'signup' and 'login' 
+                - homepage_logged_out.html      # extends homepage -> shows 'logout' and 'favorites'
         - urls.py
             - /              # URL for homepage -> drop down of possible stations and displays schedule choice
             - /home          # URL for homepage of logged in user -> shows favorited stations with schedules
