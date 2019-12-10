@@ -22,9 +22,9 @@ BartProj/
             - favorites()     # passes edit user form based on User class
         - forms.py         # UserEditForm and SignupForm for views
         - templates/       # Templates for user profile stuff
-            - login
-            - signup
-            - favorites
+            - login        # extends base: login page
+            - signup       # extends base: signup page
+            - favorites    # extends base: favorites (ie, preferences) page
     - core/                # app for displaying station information
         - static/          # Static files
         - templates/       # Core templates, including base templates
