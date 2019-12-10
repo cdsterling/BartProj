@@ -28,8 +28,9 @@ BartProj/
     - core/                # app for displaying station information
         - static/          # Static files
         - templates/       # Core templates, including base templates
-            - homepage     # shows 'signup' and 'login' 
-            - home         # only shows 'logout' and 'favorites'
+            - base         # base
+                - home_logged_in     # extends base: shows 'signup' and 'login' 
+                - home_logged_out    # extends base: shows 'logout' and 'favorites'
         - urls.py
             - /              # URL for homepage -> drop down of possible stations and displays schedule choice
             - /home          # URL for homepage of logged in user -> shows favorited stations with schedules
