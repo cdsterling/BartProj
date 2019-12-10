@@ -6,7 +6,7 @@ def homepage(request):
     context = {
         'example_context_variable': 'Change me.',
     }
-    return render(request, 'pages/home.html', context)
+    return render(request, 'pages/home_logged_out.html', context)
 
 def home(request):
     context = {
