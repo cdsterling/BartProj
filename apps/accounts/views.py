@@ -47,7 +47,7 @@ def sign_up(request):
 def logout_view(request):
     logout(request)
     messages.success(request, 'Logged out.')
-    return redirect('') #might want to change this redirect to '' to send to logged out homepage?
+    return redirect('') 
 
 
 @login_required
