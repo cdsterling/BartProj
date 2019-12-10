@@ -23,8 +23,6 @@ urlpatterns = [
     path('', include('apps.core.urls')),
     path('account/', include('apps.accounts.urls')),
     path('admin/', admin.site.urls),
-    path('signup/', views.sign_up, name='signup'),
-    path('login/',views.login, name='login')
 ] + static( # Add in uploaded media files
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
 )
