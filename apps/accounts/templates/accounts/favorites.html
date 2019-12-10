@@ -1,7 +1,7 @@
-{% extends "base1.html" %}
+{% extends "base_loged_in.html" %}
 
 {% block title %}
-My Site - Favorites
+My Site - Favorites page
 {% endblock title %}
 
 {% block content %}
@@ -13,28 +13,32 @@ My Site - Favorites
 <br>
 <br>
 <br>
-<<div class="favorites">
-    <h1>Favorite 1</h1>
-        <div id="droplist">
-            <div class="container">
-                <ul>
-                    <li><span class="pittsburg">Pittsburg</span> lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
-                    <li><span class="dublin">Dublin</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
-                    <li><span class="fremont">Fremont</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
-                    <li><span class="milbrae">Milbrae</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
-                </ul>
+<div class="dropdown-preference">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Select a Station 
+            </button>
+            </button>
+            </button>
+              </button>
+              
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">station 1 Lorem ipsum dolor sit amet.</a>
+                <a class="dropdown-item" href="#">station 2 Lorem ipsum dolor sit amet.</a>
+                <a class="dropdown-item" href="#">station 3 Lorem ipsum dolor sit amet.</a>
+              </div>
             </div>
-        </div>
-    <h1>Favorite 2</h1>
-        <div id="droplist">
-            <div class="container">
-                <ul>
-                    <li><span class="pittsburg">Pittsburg</span> lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
-                    <li><span class="dublin">Dublin</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
-                    <li><span class="fremont">Fremont</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
-                    <li><span class="milbrae">Milbrae</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
-                </ul>
+            <div id="add-btn">
+            <button type="button" class="btn btn-primary">Add</button>
             </div>
-        </div>
-</div>
+            <div id="droplist">
+                <div class="container">
+                    <div class="preference">
+                    <ul>
+                        <li>Station 1 <br><br><div id="delete-btn"><button type="button" class="btn btn-primary">Delete</button></div> </li>
+                        <li>Station 2 <br><br><div id="delete-btn"><button type="button" class="btn btn-primary">Delete</button></div> </li>
+                        <li>Station 3 <br><br><div id="delete-btn"><button type="button" class="btn btn-primary">Delete</button></div> </li>
+                    </ul>
+                </div>
+                </div>
+            </div>
   {% endblock %}
