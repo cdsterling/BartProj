@@ -10,13 +10,20 @@ My Site - Sign up Page
 <br>
 <br>
 <div id="container">
-        <div class="form-wrap">
-          <h1>Sign Up</h1>
-          <p>It's free and only takes a minute</p>
-          {% csrf_token %}
-          {{ form.as_p }}
-        <footer>
-          <p>Already have an account? <a href="{% url 'signup' %}">Login Here</a></p>
-        </footer>
-      </div>
+    <div class="form-wrap">
+    <h1>Sign Up</h1>
+    <p>It's free and only takes a minute</p>
+    <div class="form-wrap">
+      <form action="." method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-lg btn-info">Sign Up</button>
+      </form>
+      <br>
+      <footer>
+        <p>Already have an account? <a href="{% url 'login' %}">Login Here</a></p>
+      </footer>
+    </div>
+    </div>
+  </div>
 {% endblock %}

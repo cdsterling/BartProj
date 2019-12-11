@@ -1,20 +1,25 @@
 {% extends "base_logged_out.html" %}
 
 {% block title %}
-My Site - Log in Page
+Bart Runner - Login
 {% endblock title %}
 
 {% block content %}
-
-
+<br>
+<br>
+<br>
+<br>
 <div id="container">
-    <div class="form-wrap">
-      <h1>Log in</h1>
+  <div class="form-wrap">
+    <form action="." method="POST">
       {% csrf_token %}
       {{ form.as_p }}
+      <button class="btn btn-lg btn-info">Login</button>
+    </form>
+    <br>
     <footer>
-      <p>Don't have an account? <a href="subscribe.html">Sign up Here</a></p>
+      <p>Don't have an account? <a href="{% url 'signup' %}">Sign up Here</a></p>
     </footer>
   </div>
-
-  {% endblock %}
+</div>
+{% endblock %}
