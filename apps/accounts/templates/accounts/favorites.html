@@ -1,4 +1,4 @@
-{% extends "base_loged_in.html" %}
+{% extends "base_logged_in.html" %}
 
 {% block title %}
 My Site - Favorites page
@@ -14,31 +14,27 @@ My Site - Favorites page
 <br>
 <br>
 <div class="dropdown-preference">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Select a Station 
-            </button>
-            </button>
-            </button>
-              </button>
-              
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">station 1 Lorem ipsum dolor sit amet.</a>
-                <a class="dropdown-item" href="#">station 2 Lorem ipsum dolor sit amet.</a>
-                <a class="dropdown-item" href="#">station 3 Lorem ipsum dolor sit amet.</a>
-              </div>
-            </div>
-            <div id="add-btn">
-            <button type="button" class="btn btn-primary">Add</button>
-            </div>
-            <div id="droplist">
-                <div class="container">
-                    <div class="preference">
-                    <ul>
-                        <li>Station 1 <br><br><div id="delete-btn"><button type="button" class="btn btn-primary">Delete</button></div> </li>
-                        <li>Station 2 <br><br><div id="delete-btn"><button type="button" class="btn btn-primary">Delete</button></div> </li>
-                        <li>Station 3 <br><br><div id="delete-btn"><button type="button" class="btn btn-primary">Delete</button></div> </li>
-                    </ul>
-                </div>
-                </div>
-            </div>
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Select a Station 
+  </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="#">station 1 Lorem ipsum dolor sit amet.</a>
+      <a class="dropdown-item" href="#">station 2 Lorem ipsum dolor sit amet.</a>
+      <a class="dropdown-item" href="#">station 3 Lorem ipsum dolor sit amet.</a>
+    </div>
+  </div>
+  <div id="add-btn">
+  <button type="button" class="btn btn-primary">Add</button>
+  </div>
+  <div id="droplist">
+      <div class="container">
+          <div class="preference">
+          {% for station in favorite_stations %}
+            <ul>
+              <li>station.name<br><br><div id="delete-btn"><button type="button" class="btn btn-primary">Delete</button></div> </li>
+            </ul>
+          {% endfor %}
+    </div>
+      </div>
+  </div>
   {% endblock %}
