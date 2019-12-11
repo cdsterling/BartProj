@@ -13,8 +13,9 @@ class FavoriteStation(models.Model):
     station = models.CharField(
         max_length=30, 
         choices=station_list,
-        blank=True,
     )
+    class Meta:
+        unique_together = ["user", "station",]
 
     def __str__(self):
-        return self.user.username + ' favorites ' + self.station
+        return self.user.username + ': ' + self.station

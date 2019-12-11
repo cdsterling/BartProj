@@ -6,25 +6,29 @@ My Site - Favorites page
 
 {% block content %}
 
-<div class="dropdown-preference">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Select a Station 
-  </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">station 1 Lorem ipsum dolor sit amet.</a>
-      <a class="dropdown-item" href="#">station 2 Lorem ipsum dolor sit amet.</a>
-      <a class="dropdown-item" href="#">station 3 Lorem ipsum dolor sit amet.</a>
-    </div>
-  </div>
-  <div id="add-btn">
-  <button type="button" class="btn btn-primary">Add</button>
+<div class="form-wrap">
+    <form action="." method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn btn-lg btn-info">
+        Add
+      </button>
+    </form>
+    <br>
   </div>
   <div id="droplist">
       <div class="container">
           <div class="preference">
           {% for station in favorite_stations %}
             <ul>
-              <li>station.name<br><br><div id="delete-btn"><button type="button" class="btn btn-primary">Delete</button></div> </li>
+              <li>
+                {{ station.get_station_display }}
+                <br>
+                <br>
+                <div id="delete-btn">
+                <a href="./remove/{{ station.station }}" class="btn btn-primary" role="button">Remove</a>
+              </div> 
+              </li>
             </ul>
           {% endfor %}
     </div>

@@ -53,11 +53,19 @@ def logout_view(request):
 @login_required
 def favorites(request):
     if request.method == 'POST':
-        form = FavoriteStationForm(request.POST, instance=request.user)
+        print("method is a post")
+        form = FavoriteStationForm(request.POST)
+        print(type(form))
         if form.is_valid():
-            favorite = form.save()
-            favorite.user = request.user
-            return redirect('home')
+            station = form.save(commit=False)
+            if not FavoriteStation.objects.filter(
+                user_id=request.user,
+                station=station.station, 
+            ):
+                print('save station')
+                station.user = request.user
+                station.save()
+
     else:
         form = FavoriteStationForm(instance=request.user)
 
@@ -69,3 +77,13 @@ def favorites(request):
         'favorite_stations': favorite_stations, 
     }
     return render(request, 'accounts/favorites.html', context)
+
+def remove_favorite(request, station_abbr): 
+    station = FavoriteStation.objects.filter(
+        user_id=request.user.id,
+        station=station_abbr, 
+        )
+    station.delete()
+
+    # Redirect to wherever they came from
+    return redirect(request.META.get('HTTP_REFERER', '/'))
