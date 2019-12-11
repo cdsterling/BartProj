@@ -6,27 +6,30 @@ My Site - Home Logged in
 
 {% block content %}
 <div class="favorites">
-    <h1>Favorite 1</h1>
-        <div id="droplist">
-            <div class="container">
-                <ul>
-                    <li><span class="pittsburg">Pittsburg</span> lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
-                    <li><span class="dublin">Dublin</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
-                    <li><span class="fremont">Fremont</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
-                    <li><span class="milbrae">Milbrae</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
-                </ul>
+    {% for station_name, arrivals in station_names_and_arrivals %}
+        <h1>{{station_name|title}}</h1>
+            <div id="droplist">
+                <div class="container">
+                    <ul>
+                    {% for train in arrivals %}
+                        <li>
+                            <span style="color:{{train.hexcolor}}">&#9606;</span>
+                            {{train.destination_name}}, 
+                            {{train.length}} cars, 
+                            {% if train.arrival_minutes == "Leaving" %}
+                                LEAVING NOW!!!
+                            {% else %} 
+                                Arriving in {{train.arrival_minutes}} minutes,
+                            {% endif %}
+                            at time {{train.arrival_datetime}}
+                            <span style="color:{{train.hexcolor}}">&#9606;</span>        
+                        </li>
+                    {% endfor %}
+
+                    </ul>
+                </div>
             </div>
-        </div>
-    <h1>Favorite 2</h1>
-        <div id="droplist">
-            <div class="container">
-                <ul>
-                    <li><span class="pittsburg">Pittsburg</span> lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
-                    <li><span class="dublin">Dublin</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
-                    <li><span class="fremont">Fremont</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
-                    <li><span class="milbrae">Milbrae</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ex?</li>
-                </ul>
-            </div>
-        </div>
+    {% endfor %}
+    
 </div>
   {% endblock %}
