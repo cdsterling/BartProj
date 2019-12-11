@@ -12,7 +12,7 @@ def home(request):
     context = {
         'example_context_variable': 'Change me.',
     }
-    return render(request, 'pages/home.html', context)
+    return render(request, 'pages/home_logged_in.html', context)
 
 def about(request):
     context = {
