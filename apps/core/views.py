@@ -27,7 +27,8 @@ def faq(request):
 
     return render(request, 'pages/faq.html', context)
 
-def show_single_station(request, stn_abbr):
+def homepage_logged_out(request, stn_abbr="SELECT"):
+    
     station_list = [(station['abbr'], station['name']) for station in bart.stations()]
     arrivals = {}
     station_name=''
@@ -54,9 +55,9 @@ def show_single_station(request, stn_abbr):
         'station_name' : station_name
 
     }
-    return render(request, 'pages/index.html', context)
+    return render(request, 'pages/home_logged_out.html', context)
 
-def show_all_users_stations(request):
+def homepage_logged_in(request):
     arrivals = []
     station_names = []
     all_stations = bart.stations()
