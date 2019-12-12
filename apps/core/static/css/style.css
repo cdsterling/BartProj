@@ -14,6 +14,7 @@
   
 #navbar a {
     color: #fff;
+    font-family: 'Lilita One', cursive;
   }
 #navbar ul li a:hover, 
 #navbar ul li a.current {
@@ -197,9 +198,41 @@ body, html{
   }
 
   .favorites h1{
-      padding: 20px 100px;
-      background:dodgerblue;
-      color: white;
-      text-align: center;
-      margin: 10px 300px;
+    padding: 20px 100px;
+    background:dodgerblue;
+    color: white;
+    text-align: center;
+    margin: 10px 400px;
+    border-radius: 15px;
+    font: 20pt;
+}
+.animation img{
+    height: 100px;
+}
+.animation {
+    width: 100px;
+    height: 100px;
+    font-family:  'Raleway Dots', cursive;
+    display: inline;
+    font-size: 150px;
+    font-weight: 900;
+    color: red;
+    /* background: red; */
+    position: relative;
+    -webkit-animation: mymove 5s infinite; /* Safari 4.0 - 8.0 */
+    animation: mymove 5s infinite;
+  }
+  
+  /* Safari 4.0 - 8.0 */
+  @-webkit-keyframes mymove {
+    from {left: -200px;}
+    to {left: 1000px;}
+  }
+  
+  @keyframes mymove {
+    from {left: -200px;}
+    to {left: 100%;}
+  }
+  .material-icons { 
+      float: left 55% !important ;
   }
