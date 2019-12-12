@@ -1,4 +1,5 @@
 /* Navbar */
+
 #navbar {
     background: royalblue;
     color: #fff;
@@ -7,11 +8,13 @@
     top: 0;
     right: 0;
     left: 0;
+    position: fixed;
   
   }
   
 #navbar a {
     color: #fff;
+    font-family: 'Lilita One', cursive;
   }
 #navbar ul li a:hover, 
 #navbar ul li a.current {
@@ -51,24 +54,27 @@
 body, html{
     height: 100%;
 }
-body {
+body, html{
   background-image: url("../images/bart.png");
   height: 100%;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-size: cover;
-  padding-top: 200px;
+  padding-top: 70px;
 }
+
 
 .dropdown {
     text-align: center; 
     
 }
 .dropdown button {
-    padding: 0px 200px !important;
+    padding: 20px 200px !important;
+    border-radius: 15px;
 }
 .dropdown-menu a{
     padding: 0px 160px !important; 
+    border-radius: 15px;
 }
 
 #droplist-container {
@@ -83,6 +89,12 @@ body {
     margin-top: 10px;
     margin-left: 200px;
     margin-right: 200px;
+    min-width: 600x;
+    max-width: 1000px;
+}
+
+#droplist ul{
+    padding-bottom: 100px;
 }
 
 
@@ -115,19 +127,26 @@ body {
       color: white;
       line-height: 1.8;
       margin: 0px auto;
-      max-width: 400px;
-      padding: 20px;
-      
+      max-width: 550px;
+      min-width: 500px;
+      padding-bottom: 200px;
   }
+
   .form-wrap{
       background: white;
       padding: 15px 25px;
       color: #333;
+      border-radius: 15px 50px;
+      
   }
   .form-wrap h1,
   .form-wrap p{
       text-align: center;
   }
+  .form-wrap-2 p{
+      text-align: left;
+  }
+
   .form-wrap .form-group label {
       display: block;
       color: #666;
@@ -179,9 +198,41 @@ body {
   }
 
   .favorites h1{
-      padding: 20px 100px;
-      background:dodgerblue;
-      color: white;
-      text-align: center;
-      margin: 10px 300px;
+    padding: 20px 100px;
+    background:dodgerblue;
+    color: white;
+    text-align: center;
+    margin: 10px 400px;
+    border-radius: 15px;
+    font: 20pt;
+}
+.animation img{
+    height: 100px;
+}
+.animation {
+    width: 100px;
+    height: 100px;
+    font-family:  'Raleway Dots', cursive;
+    display: inline;
+    font-size: 150px;
+    font-weight: 900;
+    color: red;
+    /* background: red; */
+    position: relative;
+    -webkit-animation: mymove 5s infinite; /* Safari 4.0 - 8.0 */
+    animation: mymove 5s infinite;
+  }
+  
+  /* Safari 4.0 - 8.0 */
+  @-webkit-keyframes mymove {
+    from {left: -200px;}
+    to {left: 1000px;}
+  }
+  
+  @keyframes mymove {
+    from {left: -200px;}
+    to {left: 100%;}
+  }
+  .material-icons { 
+      float: left 55% !important ;
   }
