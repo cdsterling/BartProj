@@ -70,7 +70,7 @@ def favorites(request):
         form = FavoriteStationForm(instance=request.user)
 
     # filters for favorited stations by user
-    favorite_stations = FavoriteStation.objects.filter(user=request.user)
+    favorite_stations = FavoriteStation.objects.filter(user=request.user).order_by('station')
 
     context = {
         'form': form,
