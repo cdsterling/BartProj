@@ -23,24 +23,35 @@ My Site - Home Page
 </div>
 <div id="droplist">
     <div class="container">
-        <ul>
-            {% for train in arrivals %}
-                <li>
-                    <span style="color:{{train.hexcolor}}">&#9606;</span>
-                    {{train.destination_name}}, 
-                    {{train.length}} cars, 
-                    {% if train.arrival_minutes == "Leaving" %}
-                        LEAVING NOW!!!
-                    {% else %} 
-                        Arriving in {{train.arrival_minutes}} minutes,
-                    {% endif %}
-                    at time {{train.arrival_datetime}}
-                    <span style="color:{{train.hexcolor}}">&#9606;</span>
-                    
-                </li>
-            {% endfor %}
-            
-        </ul>
+        <br>
+        <table class="table table-striped table-bordered table-hover table-sm table-dark">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Direction</th>
+                    <th scope="col">Cars</th>
+                    <th scope="col">Arriv. Min</th>
+                    <th scope="col">Depart Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for train in arrivals %}
+                    <tr>
+                        <th scope="row"><span style="color:{{train.hexcolor}}">&#9606;</span></th>
+                        <td>{{train.destination_name}}</td>
+                        <td>{{train.length}} cars</td>
+                        <td>
+                            {% if train.arrival_minutes == "Leaving" %}
+                                LEAVING NOW!!!
+                            {% else %} 
+                                {{train.arrival_minutes}} minutes
+                            {% endif %}
+                        </td>
+                        <td>{{train.arrival_datetime}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 </div>
   {% endblock %}
