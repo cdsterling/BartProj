@@ -38,9 +38,9 @@ def homepage_logged_out(request, stn_abbr="SELECT"):
     station_name=''
 
     arrivals = get_arrivals_for_station(stn_abbr)
-    station_name = get_arrivals_for_station(stn_abbr)        
+    station_name = get_station_name_for_abbr(stn_abbr)        
     # print("arrivals", arrivals)
-
+    print("Station name:", station_name)
     context = {
         'station_list': station_list,
         'arrivals': arrivals,
@@ -76,7 +76,7 @@ def homepage_logged_in(request):
     favorite_stations = FavoriteStation.objects.filter(user=request.user)
 
     print("Favorite Stations:", favorite_stations)
-    
+
     arrivals = []
     station_names = []
     all_stations = bart.stations()

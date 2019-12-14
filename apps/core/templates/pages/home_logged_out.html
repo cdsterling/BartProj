@@ -24,6 +24,8 @@ My Site - Home Page
 <div id="droplist">
     <div class="container">
         <br>
+        {% if station_name %}
+        <h1>{{station_name|title}}</h1>
         <table class="table table-striped table-bordered table-hover table-sm table-dark">
             <thead class="thead-dark">
                 <tr>
@@ -52,6 +54,7 @@ My Site - Home Page
                 {% endfor %}
             </tbody>
         </table>
+        {% endif %}
     </div>
 </div>
   {% endblock %}
